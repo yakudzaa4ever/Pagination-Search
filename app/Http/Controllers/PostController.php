@@ -42,6 +42,7 @@ class PostController extends Controller
         ], 201);
     }
 
+    
     public function show($id)
     {
         $post = Post::find($id);
@@ -66,6 +67,7 @@ class PostController extends Controller
             'content' => 'required|string'
         ]);
 
+
         $post = Post::find($id);
         if (!$post) {
             return response()->json([
@@ -73,6 +75,7 @@ class PostController extends Controller
                 'message' => 'Post topilmadi'
             ], 404);
         }
+
 
         $post->update($request->all());
 
